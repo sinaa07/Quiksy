@@ -62,15 +62,6 @@
       <p>&copy; 2024 Quiksy. All rights reserved.</p>
     </div>
   </footer>
-  <script>
-    const logged= <?php echo json_encode($login_status); ?>
-    if(logged){
-      window.location.href(myacc.html);
-    }
-    else {
-            alert("Invalid login credentials.");
-        }
-  </script>
-
+  
 </body>
 </html>
