@@ -40,7 +40,7 @@ else{
             window.location.href = "login.php";
         }
         else{
-            window.location.href = "signup.html";
+            window.location.href = "signup.php";
         }
     }
   </script>
