@@ -6,14 +6,19 @@
     <title>contact</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <style>
     img
     {
-        width: 65%;
+        width: 35%;
         height: 60%;
-        margin-right: 35%;
+        margin-right: 10%;
+        margin-left: 40%;
+        margin-top: 10%;
+        padding-left: 200px;
         position: absolute;
+        
 
     }
     
@@ -21,10 +26,10 @@
     {
         padding-top: 30px;
         padding-bottom: 30px;
-        margin-left: 65%;
-        margin-top:10%;
+        margin-left: 15%;   
+        margin-top:5%;
         position:relative;
-        background-color: #d1fae5;
+        background-color: #f0fdf4;
         width:25%;
         border: 1px solid grey;
         border-radius:10px;
@@ -35,6 +40,7 @@
         margin-left: 20px;
         height: 35px;
         width: 307px;
+        border: 1px solid black;
         border-radius: 5px;
         background-color: rgb(252, 250, 239);
     }
@@ -47,8 +53,7 @@
         margin-top: 20px;
         border: 1px solid black;
         width: 300px;
-    
-
+        padding: 2px 1px;
     }
     textarea{
         height: 150px;
@@ -101,7 +106,7 @@
       border-radius: 15%;
       
     }
-    h1
+    .query
     {
         margin-left:40%;
         margin-right:30%;
@@ -118,6 +123,17 @@
     span{
         font-size: large;
         font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .background
+    {
+        background-color: rgb(169,230,189);
+        height: 600px;
+         padding-bottom: 40px;
+        
+    }
+    .complain
+    {
+        padding-top: 10px;
     }
 
 
@@ -139,7 +155,8 @@
       </nav>
     </div>
   </header>
-        <img src="contact2.png">
+  <div class="background">
+        <img src="contact3.png">
  
     <div class="complain">
         <form >
@@ -155,7 +172,7 @@
                     <option value=" I am interested in partnering with quiksy">I am interested in partnering with quiksy</option>
             
                 </select>
-                <input type="email" required name="email" placeholder=" email*"><br>
+                <input type="email" required name="email" placeholder=" Email *"><br>
                 <input type="number" required name="number" placeholder=" Phone no.*" maxlength="10"><br>
                 <textarea name="details" id="details" maxlength="410" minlength="100" placeholder="Enter the details"> Enter the details
                 </textarea>
@@ -165,6 +182,7 @@
 
         </form>
     </div>
+</div>
     <hr>
     <div class="second">
         <h3><b>
@@ -189,24 +207,22 @@
             We ensure quality in every product.
         </b>
         </h3>
-        <h4
-        >Quality is our priority. Every product, from fresh produce to electronics, goes through strict quality checks to ensure you receive only the best. Trust us to bring you products that meet high standards of freshness, durability, and safety, so you can shop with confidence every time.
+        <h4>
+            Quality is our priority. Every product, from fresh produce to electronics, goes through strict quality checks to ensure you receive only the best. Trust us to bring you products that meet high standards of freshness, durability, and safety, so you can shop with confidence every time.
         </h4>
     </div>
     <hr>
     <br>
-    <h1>
+    <h1 class="query">
        <span> For more queries</span> <a href="#"><i class="fa-brands fa-square-whatsapp fa-2xl"></a></i> <a href="#"> <i class="fa-brands fa-square-facebook fa-2xl"></i></a>  
        <a href="#"> <i class="fa-brands fa-square-snapchat fa-2xl"></i> </a> <a href="#"><i class="fa-brands fa-square-twitter fa-2xl"></i></a>
         
     </h1>
-    <br><br>
+    <br><br>    
     <h6>
         By continuing past this page you agree to our Terms, Cookie policy and Privacy policy. All trademarks are properties of their respective owners. © quiksy Private Limited 2023-2024
     </h6>
     
-    <br>    
-
-
+    <br> 
 </body>
 </html>
