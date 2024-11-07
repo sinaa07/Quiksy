@@ -9,7 +9,7 @@
   <style>
     /* Custom Styling */
     .quiksy-theme {
-      background-color: #f9fafb;
+      background-color: #f3f4f6;
       color: #1f2937;
     }
     .category-icon {
@@ -21,7 +21,6 @@
     .category-icon:hover {
       transform: scale(1.1);
     }
-
     .feature-card {
       transition: transform 0.3s ease;
     }
@@ -33,25 +32,25 @@
 <body class="quiksy-theme text-gray-800">
 
   <!-- Navigation Bar -->
-  <header class="bg-white shadow-md">
+  <header class="bg-white shadow-md border-b-2">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <div class="flex justify-start space-x-2">
         <h1 class="text-2xl font-bold text-green-600">Quiksy</h1>
-       <!-- Stylish Lightning Icon to the Right -->
+        <!-- Stylish Lightning Icon to the Right -->
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       </div>
       <nav class="flex space-x-6">
-        <a href="index.html" class="text-gray-600 hover:text-green-500 font-medium">Home</a>
-        <a href="login.php" target="_self" class="text-gray-600 hover:text-green-500 font-medium">Login</a>
-        <a href="#mycart" class="text-gray-600 hover:text-green-500 font-medium">My Cart</a>
-        <a href="contact.html" class="text-gray-600 hover:text-green-500 font-medium">Contact</a>
+        <a href="index.html" class="text-gray-600 hover:text-green-500">Home</a>
+        <a href="login.php" target="_self" class="text-gray-600 hover:text-green-500">Login</a>
+        <a href="#mycart" class="text-gray-600 hover:text-green-500">My Cart</a>
+        <a href="contact.html" class="text-gray-600 hover:text-green-500">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section with Updated Lightning Icon -->
+  <!-- Hero Section with Search Bar -->
   <section class="bg-green-50 py-16 border-b-2">
     <div class="container mx-auto px-6 text-center">
       <h2 class="text-3xl font-bold text-green-600 mb-4">Quick and Convenient Shopping with Quiksy
@@ -61,7 +60,6 @@
         </svg>
       </h2>
       <p class="text-lg text-gray-600 mb-8">Shop in Seconds, Fast and Fresh!</p>
-      <!-- Search bar -->
       <div class="relative max-w-md mx-auto">
         <input type="text" placeholder="Search for products..." class="w-full p-4 pl-10 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
         <button class="absolute inset-y-0 right-0 px-4 bg-green-500 text-white rounded-r-lg">Go</button>
@@ -69,30 +67,29 @@
     </div>
   </section>
 
-
   <!-- Category Section -->
-  <section class="py-12 bg-gray-50">
+  <section class="py-12">
     <div class="container mx-auto px-6">
-      <h3 class="text-3xl font-bold text-gray-800 mb-8">Shop by Categories</h3>
+      <h3 class="text-2xl font-bold text-gray-700 mb-6">Shop by Categories</h3>
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
         <!-- Category Items -->
         <div class="text-center">
           <div class="category-icon mx-auto mb-2">
-            <img src="https://via.placeholder.com/50" alt="Groceries" class="w-12 h-12" />
+            <img src="https://via.placeholder.com/50" alt="Groceries" class="w-10 h-10" />
           </div>
-          <p class="text-lg font-semibold text-gray-800">Groceries</p>
+          <p class="text-sm font-semibold text-gray-700">Groceries</p>
         </div>
         <div class="text-center">
           <div class="category-icon mx-auto mb-2">
-            <img src="https://via.placeholder.com/50" alt="Vegetables" class="w-12 h-12" />
+            <img src="https://via.placeholder.com/50" alt="Vegetables" class="w-10 h-10" />
           </div>
-          <p class="text-lg font-semibold text-gray-800">Vegetables</p>
+          <p class="text-sm font-semibold text-gray-700">Vegetables</p>
         </div>
         <div class="text-center">
           <div class="category-icon mx-auto mb-2">
-            <img src="https://via.placeholder.com/50" alt="Fruits" class="w-12 h-12" />
+            <img src="https://via.placeholder.com/50" alt="Fruits" class="w-10 h-10" />
           </div>
-          <p class="text-lg font-semibold text-gray-800">Fruits</p>
+          <p class="text-sm font-semibold text-gray-700">Fruits</p>
         </div>
         <!-- Add more categories as needed -->
       </div>
@@ -100,9 +97,8 @@
   </section>
 
   <!-- Features Section -->
-  <section class="py-16 bg-white">
+  <section class="bg-white py-16">
     <div class="container mx-auto px-6 text-center">
-     
       <h3 class="text-2xl font-bold text-green-600 mb-8">Why Choose Quiksy?</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="p-4 bg-green-50 feature-card shadow-lg rounded-lg">
@@ -121,10 +117,39 @@
     </div>
   </section>
 
+  <!-- Random items category -->
+  <section class="py-12">
+    <div class="container mx-auto px-6">
+      <h3 class="text-2xl font-bold text-gray-700 mb-6">Shop by Categories</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <!-- Category Items -->
+        <div class="text-center">
+          <div class="category-icon mx-auto mb-2">
+            <img src="https://via.placeholder.com/50" alt="Groceries" class="w-10 h-10" />
+          </div>
+          <p class="text-sm font-semibold text-gray-700">Groceries</p>
+        </div>
+        <div class="text-center">
+          <div class="category-icon mx-auto mb-2">
+            <img src="https://via.placeholder.com/50" alt="Vegetables" class="w-10 h-10" />
+          </div>
+          <p class="text-sm font-semibold text-gray-700">Vegetables</p>
+        </div>
+        <div class="text-center">
+          <div class="category-icon mx-auto mb-2">
+            <img src="https://via.placeholder.com/50" alt="Fruits" class="w-10 h-10" />
+          </div>
+          <p class="text-sm font-semibold text-gray-700">Fruits</p>
+        </div>
+        <!-- Add more categories as needed -->
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-6">
+  <footer class="bg-gray-800 text-white py-4">
     <div class="container mx-auto text-center">
-      <p class="text-sm">&copy; 2024 Quiksy. All rights reserved.</p>
+      <p>&copy; 2024 Quiksy. All rights reserved.</p>
     </div>
   </footer>
 
