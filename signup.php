@@ -19,7 +19,13 @@
   <!-- Navigation Bar -->
   <header class="bg-white shadow-md border-b-2">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-green-600">Quiksy</h1>
+      <div class="flex justify-start space-x-2">
+        <h1 class="text-2xl font-bold text-green-600">Quiksy</h1>
+        <!-- Stylish Lightning Icon to the Right -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      </div>
       <nav class="flex space-x-6">
         <a href="index.html" class="text-gray-600 hover:text-green-500">Home</a>
         <a href="login.php" class="text-gray-600 hover:text-green-500">Login</a>
