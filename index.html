@@ -27,13 +27,58 @@
     .feature-card:hover {
       transform: translateY(-10px);
     }
+    
+    .category
+    {
+      height:auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: rgb(229, 244, 237, 0.44);
+
+    }
+    .cate
+    {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-left:32px;
+      margin-right:32px;
+      width:135px;
+      margin-top:15px;
+      margin-bottom: 15px;
+      height:140px;
+      background-color:rgb(236,245,255);
+      border-radius: 15px;
+
+    }
+    .cat_ic
+    {
+      width:90px;
+      height:85px;
+      margin-left:22px;
+      margin-top:5px;
+      border-radius: 4px;
+
+    }
+    .cat_text
+    {
+      background-color: rgb(236,245,255);
+      margin-left:25px;
+      margin-top:5px;
+      width:90px;
+      font-size: small;
+      border-radius: 4px;
+    }
+
   </style>
 </head>
 <body class="quiksy-theme text-gray-800">
 
   <!-- Navigation Bar -->
   <header class="bg-white shadow-md border-b-2">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="container mx-auto px-5 py-4 flex justify-between items-center">
       <div class="flex justify-start space-x-2">
         <h1 class="text-2xl font-bold text-green-600">Quiksy</h1>
         <!-- Stylish Lightning Icon to the Right -->
@@ -45,7 +90,7 @@
         <a href="index.html" class="text-gray-600 hover:text-green-500">Home</a>
         <a href="login.php" target="_self" class="text-gray-600 hover:text-green-500">Login</a>
         <a href="#mycart" class="text-gray-600 hover:text-green-500">My Cart</a>
-        <a href="contact.html" class="text-gray-600 hover:text-green-500">Contact</a>
+        <a href="contact.html" class="text-gray-600 hover:text-green-500">Contact Us</a>
       </nav>
     </div>
   </header>
@@ -68,36 +113,81 @@
   </section>
 
   <!-- Category Section -->
-  <section class="py-12">
-    <div class="container mx-auto px-6">
-      <h3 class="text-2xl font-bold text-gray-700 mb-6">Shop by Categories</h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-        <!-- Category Items -->
-        <div class="text-center">
-          <div class="category-icon mx-auto mb-2">
-            <img src="https://via.placeholder.com/50" alt="Groceries" class="w-10 h-10" />
+  <section class="py-12" >
+    <h3 class="mx-auto px-6 text-center text-2xl font-semibold text-gray-600 mb-6 mx-6">Shop by Categories</h3>
+    <div class="category">
+        <div class="cate">
+          <img src="cat_photos/bread.png" alt="" class="cat_ic">
+          <div class="cat_text"> Dairy, Breads &nbsp; &nbsp; &nbsp; &nbsp;& Eggs
           </div>
-          <p class="text-sm font-semibold text-gray-700">Groceries</p>
         </div>
-        <div class="text-center">
-          <div class="category-icon mx-auto mb-2">
-            <img src="https://via.placeholder.com/50" alt="Vegetables" class="w-10 h-10" />
+        <div class="cate">
+          <img src="cat_photos/f&v.png" alt="" class="cat_ic">
+          <div class="cat_text">&nbsp; &nbsp;Fruits & &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Vegetables
           </div>
-          <p class="text-sm font-semibold text-gray-700">Vegetables</p>
         </div>
-        <div class="text-center">
-          <div class="category-icon mx-auto mb-2">
-            <img src="https://via.placeholder.com/50" alt="Fruits" class="w-10 h-10" />
+        <div class="cate">
+          <img src="cat_photos/cdj.png" alt="" class="cat_ic">
+          <div class="cat_text">&nbsp;Cold drinks & &nbsp; &nbsp; &nbsp; &nbsp;Juices
           </div>
-          <p class="text-sm font-semibold text-gray-700">Fruits</p>
         </div>
-        <!-- Add more categories as needed -->
-      </div>
+        <div class="cate">
+          <img src="cat_photos/s&m.png" alt="" class="cat_ic">
+          <div class="cat_text"> &nbsp;&nbsp;Snacks & &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;Munchies
+          </div>
+        </div>
+        <div class="cate">
+          <img src="cat_photos/b&if.png" alt="" class="cat_ic">
+          <div class="cat_text">&nbsp; Breakfast & &nbsp;  &nbsp; &nbsp; Instant food
+          </div>
+        </div>
+        <div class="cate">
+          <img src="cat_photos/chocs.png" alt="" class="cat_ic">
+          <div class="cat_text">&nbsp;&nbsp; &nbsp; Sweet &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;Tooth
+          </div>
+        </div>
+        <div class="cate">
+          <img src="cat_photos/bsct.png" alt="" class="cat_ic">
+          <div class="cat_text"> &nbsp; &nbsp; Bakery &&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Biscuits
+          </div>
+        </div>
+        <div class="cate">
+          <img src="cat_photos/tea.png" alt="" class="cat_ic">
+          <div class="cat_text"> Tea, Coffee & &nbsp; &nbsp;Health Drinks
+          </div>
+        </div>
+        <div class="cate">
+          <img src="cat_photos/atta.png" alt="" class="cat_ic">
+          <div class="cat_text">
+            &nbsp;&nbsp;Atta, Rice & &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; Daal
+          </div>
+        </div>
+        <div class="cate">
+          <img src="cat_photos/baby.png" alt="" class="cat_ic">
+          <div class="cat_text"> &nbsp; &nbsp; &nbsp; Baby &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;Care</div>
+        </div>
+        <div class="cate">
+          <img src="cat_photos/personal.png" alt="" class="cat_ic">
+          <div class="cat_text">&nbsp; &nbsp; Personal &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Care</div>
+
+        </div>
+        <div class="cate">
+          <img src="cat_photos/masala.png" alt="" class="cat_ic">
+          <div class="cat_text"> &nbsp;Masala, Oil & &nbsp; &nbsp; &nbsp; &nbsp;More</div>
+        </div>
+        <div class="cate">
+          <img src="cat_photos/clean.png" alt="" class="cat_ic">
+          <div class="cat_text">&nbsp; &nbsp; Cleaning &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Essentials</div></div>
+        
+        <div class="cate">
+          <img src="cat_photos/sauce.png" alt="" class="cat_ic">
+          <div class="cat_text"> &nbsp; &nbsp;Sauces & &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Spreads</div>
+        </div>
     </div>
-  </section>
+    </section>
 
   <!-- Features Section -->
-  <section class="bg-white py-16">
+  <section class="bg-white py-16 border-t-1 border-b-none">
     <div class="container mx-auto px-6 text-center">
       <h3 class="text-2xl font-bold text-green-600 mb-8">Why Choose Quiksy?</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
