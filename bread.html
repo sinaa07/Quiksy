@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bread</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<style>
+    /* Custom Styling */
+    .quiksy-theme {
+      background-color: #f3f4f6;
+      color: #1f2937;
+    }
+    .category-icon {
+      background-color: #d1fae5;
+      border-radius: 50%;
+      padding: 10px;
+    }
+    .location{
+      width:150px;
+      height:35px;
+      border:5px solid black;
+      border-radius: 15%;
+      margin-right: 50%;
+    }
+    .cat_row{
+      display:flex;
+      flex-direction: column;
+      
+      height: 170px;
+      margin-bottom:15px;
+      margin-top: 15px;
+      width:1400px;
+      margin-left:60px;
+      border-radius: 30px;
+      
+    }
+    .category
+    {
+      height:400px;
+      display: flex;
+      flex-direction: row;
+
+    }
+    .cate
+    {
+      display: flex;
+      flex-direction: row;
+      margin-left:32px;
+      margin-right:32px;
+      width:200px;
+      margin-top:15px;
+      margin-bottom: 15px;
+      height:140px;
+      background-color:rgb(236,245,255);
+      border-radius: 15px;
+
+    }
+    .cat_ic
+    {
+      width:50px;
+      height:35px;
+      margin-left:22px;
+      margin-top:5px;
+      border-radius: 4px;
+
+    }
+    .cat_text
+    {
+      background-color: rgb(236,245,255);
+      margin-left:25px;
+      margin-top:5px;
+      width:90px;
+      font-size: small;
+      border-radius: 4px;
+    }
+    .feature-card {
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+    .open
+    {
+        border: 2px solid green;
+
+    }
+  </style>
+    <body class="quiksy-theme text-gray-800">
+
+        <!-- Navigation Bar -->
+        <header class="bg-grey shadow-md border-b-2">
+          <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-green-600">Quiksy</h1>
+            <div class="location">
+      
+            </div>
+            <nav class="flex space-x-6">
+              <a href="index.html" class="text-gray-600 hover:text-green-500">Home</a>
+              <a href="login.php" target="_self" class="text-gray-600 hover:text-green-500">Login</a>
+              <a href="#mycart" class="text-gray-600 hover:text-green-500">My Cart</a>
+              <a href="contact.html"  class="text-gray-600 hover:text-green-500">Contact</a>
+            </nav>
+          </div>
+        </header>
+        <section class="py-12" >
+            <div class="category">
+              <div class="cat_row">
+                <div class="cate open">
+                  <img src="cat_photos/bread.png" alt="" class="cat_ic">
+                  <div class="cat_text"> Dairy, Breads & Eggs
+                  </div>
+                </div>
+                <div class="cate">
+                  <img src="cat_photos/f&v.png" alt="" class="cat_ic">
+                  <div class="cat_text">&nbsp; &nbsp;Fruits & &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Vegetables
+                  </div>
+                </div>
+                <div class="cate">
+                  <img src="cat_photos/cdj.png" alt="" class="cat_ic">
+                  <div class="cat_text">&nbsp;Cold drinks & &nbsp; &nbsp; &nbsp; &nbsp;Juices
+                  </div>
+                </div>
+                <div class="cate">
+                  <img src="cat_photos/s&m.png" alt="" class="cat_ic">
+                  <div class="cat_text"> Snacks & Munchies
+                  </div>
+                </div>
+                <div class="cate">
+                  <img src="cat_photos/b&if.png" alt="" class="cat_ic">
+                  <div class="cat_text">&nbsp; Breakfast & &nbsp;  &nbsp; &nbsp; Instant food
+                  </div>
+                </div>
+                <div class="cate">
+                  <img src="cat_photos/chocs.png" alt="" class="cat_ic">
+                  <div class="cat_text">&nbsp; Sweet Tooth
+                  </div>
+                </div>
+                <div class="cate">
+                  <img src="cat_photos/bsct.png" alt="" class="cat_ic">
+                  <div class="cat_text"> &nbsp; &nbsp; Bakery &&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Biscuits
+                  </div>
+                </div>
+                <div class="cate">
+                  <img src="cat_photos/tea.png" alt="" class="cat_ic">
+                  <div class="cat_text"> Tea, Coffee & &nbsp; &nbsp;Health Drinks
+                  </div>
+                </div>
+                <div class="cate">
+                  <img src="cat_photos/atta.png" alt="" class="cat_ic">
+                  <div class="cat_text">
+                    &nbsp;&nbsp;Atta, Rice & &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; Daal
+                  </div>
+                </div>
+                <div class="cate">
+                  <img src="cat_photos/baby.png" alt="" class="cat_ic">
+                  <div class="cat_text"> &nbsp; &nbsp; &nbsp; Baby &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;Care</div>
+                </div>
+                <div class="cate">
+                  <img src="cat_photos/personal.png" alt="" class="cat_ic">
+                  <div class="cat_text">&nbsp; &nbsp; Personal &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Care</div>
+        
+                </div>
+                <div class="cate">
+                  <img src="cat_photos/masala.png" alt="" class="cat_ic">
+                  <div class="cat_text"> &nbsp;Masala, Oil & &nbsp; &nbsp; &nbsp; &nbsp;More</div>
+                </div>
+                <div class="cate">
+                  <img src="cat_photos/clean.png" alt="" class="cat_ic">
+                  <div class="cat_text">&nbsp; &nbsp; Cleaning &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Essentials</div></div>
+                
+                <div class="cate">
+                  <img src="cat_photos/sauce.png" alt="" class="cat_ic">
+                  <div class="cat_text"> &nbsp; &nbsp;Sauces & &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Spreads</div>
+                </div>
+              </div>
+        
+            </div>
+            </section>
+    </body>
+</html>
