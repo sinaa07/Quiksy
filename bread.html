@@ -5,178 +5,283 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bread</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <style>
     /* Custom Styling */
     .quiksy-theme {
-      background-color: #f3f4f6;
-      color: #1f2937;
+        background-color: #f3f4f6;
+        color: #1f2937;
     }
     .category-icon {
-      background-color: #d1fae5;
-      border-radius: 50%;
-      padding: 10px;
+        background-color: #d1fae5;
+        border-radius: 50%;
+        padding: 10px;
     }
-    .location{
-      width:150px;
-      height:35px;
-      border:5px solid black;
-      border-radius: 15%;
-      margin-right: 50%;
+    .cat_row {
+        display: flex;
+        flex-direction: column;
+        height: 170px;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        width: 1400px;
+        margin-left: 60px;
+        border-radius: 30px;
     }
-    .cat_row{
-      display:flex;
-      flex-direction: column;
-      
-      height: 170px;
-      margin-bottom:15px;
-      margin-top: 15px;
-      width:1400px;
-      margin-left:60px;
-      border-radius: 30px;
-      
+    .category {
+        height: 400px;
+        display: flex;
+        flex-direction: row;
     }
-    .category
-    {
-      height:400px;
-      display: flex;
-      flex-direction: row;
-
+    .cate {
+        display: flex;
+        flex-direction: row;
+        margin-left: 32px;
+        margin-right: 32px;
+        width: 200px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        height: 140px;
+        background-color: rgb(236, 245, 255);
+        border-radius: 15px;
     }
-    .cate
-    {
-      display: flex;
-      flex-direction: row;
-      margin-left:32px;
-      margin-right:32px;
-      width:200px;
-      margin-top:15px;
-      margin-bottom: 15px;
-      height:140px;
-      background-color:rgb(236,245,255);
-      border-radius: 15px;
-
+    .cat_ic {
+        width: 50px;
+        height: 35px;
+        margin-left: 22px;
+        margin-top: 5px;
+        border-radius: 4px;
     }
-    .cat_ic
-    {
-      width:50px;
-      height:35px;
-      margin-left:22px;
-      margin-top:5px;
-      border-radius: 4px;
-
-    }
-    .cat_text
-    {
-      background-color: rgb(236,245,255);
-      margin-left:25px;
-      margin-top:5px;
-      width:90px;
-      font-size: small;
-      border-radius: 4px;
+    .cat_text {
+        background-color: rgb(236, 245, 255);
+        margin-left: 25px;
+        margin-top: 5px;
+        width: 90px;
+        font-size: small;
+        border-radius: 4px;
     }
     .feature-card {
-      transition: transform 0.3s ease;
+        transition: transform 0.3s ease;
     }
     .feature-card:hover {
-      transform: translateY(-10px);
+        transform: translateY(-10px);
     }
-    .open
-    {
+    .open {
         border: 2px solid green;
-
     }
-  </style>
-    <body class="quiksy-theme text-gray-800">
+    /* Styles for the search bar */
+    .search-bar {
+        border: 1px solid #d1d5db;
+        border-radius: 5px;
+        padding: 8px 10px 8px 30px; /* Add space for the icon */
+        width: 300px; /* Make the search bar wider */
+        position: relative;
+    }
+    .search-icon {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #6b7280; /* Gray color for the icon */
+    }
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%; /* Ensures the full width is used */
+    }
+    .nav-links {
+        display: flex;
+        gap: 15px;
+        margin-left: auto; /* Pushes the navigation links to the right */
+    }
+    /* Adjust for search bar to center */
+    .search-container {
+        display: flex;
+        justify-content: center;
+        flex-grow: 1; /* This will take up remaining space */
+        margin-left: 15px; /* Adds some spacing between search bar and nav */
+    }
+    /* Styling for suggestion box */
+    .suggestion-box {
+        position: absolute;
+        top: 35px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        border: 1px solid #d1d5db;
+        border-top: none;
+        z-index: 10;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+    .suggestion-item {
+        padding: 8px;
+        cursor: pointer;
+    }
+    .suggestion-item:hover {
+        background-color: #f3f4f6;
+    }
+</style>
+<body class="quiksy-theme text-gray-800">
 
-        <!-- Navigation Bar -->
-        <header class="bg-grey shadow-md border-b-2">
-          <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- Navigation Bar -->
+    <header class="bg-grey shadow-md border-b-2">
+        <div class="container mx-auto px-6 py-4 nav-container">
             <h1 class="text-2xl font-bold text-green-600">Quiksy</h1>
-            <div class="location">
-      
+            <!-- Search Bar in the center -->
+            <div class="search-container">
+                <div class="relative">
+                    <input type="text" id="searchBar" class="search-bar" placeholder="Search milk..." onkeyup="updatePlaceholder()">
+                    <!-- Search Icon -->
+                    <i class="fas fa-search search-icon"></i>
+                    <!-- Suggestions Box -->
+                    <div id="suggestionBox" class="suggestion-box" style="display: none;"></div>
+                </div>
             </div>
-            <nav class="flex space-x-6">
-              <a href="index.html" class="text-gray-600 hover:text-green-500">Home</a>
-              <a href="login.php" target="_self" class="text-gray-600 hover:text-green-500">Login</a>
-              <a href="#mycart" class="text-gray-600 hover:text-green-500">My Cart</a>
-              <a href="contact.html"  class="text-gray-600 hover:text-green-500">Contact</a>
+            <!-- Navigation Links aligned to the right -->
+            <nav class="nav-links">
+                <a href="index.html" class="text-gray-600 hover:text-green-500">Home</a>
+                <a href="login.php" target="_self" class="text-gray-600 hover:text-green-500">Login</a>
+                <a href="#mycart" class="text-gray-600 hover:text-green-500">My Cart</a>
+                <a href="contact.html" class="text-gray-600 hover:text-green-500">Contact</a>
             </nav>
-          </div>
-        </header>
-        <section class="py-12" >
-            <div class="category">
-              <div class="cat_row">
+        </div>
+    </header>
+
+    <!-- Categories Section -->
+    <section class="py-12">
+        <div class="category">
+            <div class="cat_row" id="categoryContainer">
+                <!-- Category Items -->
                 <div class="cate open">
-                  <img src="cat_photos/bread.png" alt="" class="cat_ic">
-                  <div class="cat_text"> Dairy, Breads & Eggs
-                  </div>
+                    <img src="cat_photos/bread.png" alt="" class="cat_ic">
+                    <div class="cat_text">Dairy, Breads & Eggs</div>
                 </div>
                 <div class="cate">
-                  <img src="cat_photos/f&v.png" alt="" class="cat_ic">
-                  <div class="cat_text">&nbsp; &nbsp;Fruits & &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Vegetables
-                  </div>
+                    <img src="cat_photos/f&v.png" alt="" class="cat_ic">
+                    <div class="cat_text">Fruits & Vegetables</div>
                 </div>
                 <div class="cate">
-                  <img src="cat_photos/cdj.png" alt="" class="cat_ic">
-                  <div class="cat_text">&nbsp;Cold drinks & &nbsp; &nbsp; &nbsp; &nbsp;Juices
-                  </div>
+                    <img src="cat_photos/cdj.png" alt="" class="cat_ic">
+                    <div class="cat_text">Cold drinks & Juices</div>
                 </div>
                 <div class="cate">
-                  <img src="cat_photos/s&m.png" alt="" class="cat_ic">
-                  <div class="cat_text"> Snacks & Munchies
-                  </div>
+                    <img src="cat_photos/s&m.png" alt="" class="cat_ic">
+                    <div class="cat_text">Snacks & Munchies</div>
                 </div>
                 <div class="cate">
-                  <img src="cat_photos/b&if.png" alt="" class="cat_ic">
-                  <div class="cat_text">&nbsp; Breakfast & &nbsp;  &nbsp; &nbsp; Instant food
-                  </div>
+                    <img src="cat_photos/b&if.png" alt="" class="cat_ic">
+                    <div class="cat_text">Breakfast & Instant Food</div>
                 </div>
                 <div class="cate">
-                  <img src="cat_photos/chocs.png" alt="" class="cat_ic">
-                  <div class="cat_text">&nbsp; Sweet Tooth
-                  </div>
+                    <img src="cat_photos/chocs.png" alt="" class="cat_ic">
+                    <div class="cat_text">Sweet Tooth</div>
                 </div>
                 <div class="cate">
-                  <img src="cat_photos/bsct.png" alt="" class="cat_ic">
-                  <div class="cat_text"> &nbsp; &nbsp; Bakery &&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Biscuits
-                  </div>
+                    <img src="cat_photos/bsct.png" alt="" class="cat_ic">
+                    <div class="cat_text">Bakery & Biscuits</div>
                 </div>
                 <div class="cate">
-                  <img src="cat_photos/tea.png" alt="" class="cat_ic">
-                  <div class="cat_text"> Tea, Coffee & &nbsp; &nbsp;Health Drinks
-                  </div>
+                    <img src="cat_photos/tea.png" alt="" class="cat_ic">
+                    <div class="cat_text">Tea, Coffee & Health Drinks</div>
                 </div>
                 <div class="cate">
-                  <img src="cat_photos/atta.png" alt="" class="cat_ic">
-                  <div class="cat_text">
-                    &nbsp;&nbsp;Atta, Rice & &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; Daal
-                  </div>
+                    <img src="cat_photos/atta.png" alt="" class="cat_ic">
+                    <div class="cat_text">Atta, Rice & Daal</div>
                 </div>
                 <div class="cate">
-                  <img src="cat_photos/baby.png" alt="" class="cat_ic">
-                  <div class="cat_text"> &nbsp; &nbsp; &nbsp; Baby &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;Care</div>
+                    <img src="cat_photos/baby.png" alt="" class="cat_ic">
+                    <div class="cat_text">Baby Care</div>
                 </div>
                 <div class="cate">
-                  <img src="cat_photos/personal.png" alt="" class="cat_ic">
-                  <div class="cat_text">&nbsp; &nbsp; Personal &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Care</div>
-        
+                    <img src="cat_photos/personal.png" alt="" class="cat_ic">
+                    <div class="cat_text">Personal Care</div>
                 </div>
                 <div class="cate">
-                  <img src="cat_photos/masala.png" alt="" class="cat_ic">
-                  <div class="cat_text"> &nbsp;Masala, Oil & &nbsp; &nbsp; &nbsp; &nbsp;More</div>
+                    <img src="cat_photos/masala.png" alt="" class="cat_ic">
+                    <div class="cat_text">Masala, Oil & More</div>
                 </div>
                 <div class="cate">
-                  <img src="cat_photos/clean.png" alt="" class="cat_ic">
-                  <div class="cat_text">&nbsp; &nbsp; Cleaning &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Essentials</div></div>
-                
-                <div class="cate">
-                  <img src="cat_photos/sauce.png" alt="" class="cat_ic">
-                  <div class="cat_text"> &nbsp; &nbsp;Sauces & &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Spreads</div>
+                    <img src="cat_photos/clean.png" alt="" class="cat_ic">
+                    <div class="cat_text">Cleaning Essentials</div>
                 </div>
-              </div>
-        
+                <div class="cate">
+                    <img src="cat_photos/sauce.png" alt="" class="cat_ic">
+                    <div class="cat_text">Sauces & Spreads</div>
+                </div>
             </div>
-            </section>
-    </body>
+        </div>
+    </section>
+
+    <script>
+        const categories = [
+            "Milk",
+            "Paneer",
+            "Bread",
+            "Butter",
+            "Cheese",
+            "Yogurt",
+            "Ice Cream",
+            "Juice",
+            "Fruits",
+            "Vegetables",
+            "Snacks",
+            "Cereals"
+        ];
+
+        let currentCategoryIndex = 0;
+
+        function updatePlaceholder() {
+            const searchInput = document.getElementById('searchBar').value.toLowerCase();
+            const placeholderText = document.getElementById('searchBar');
+
+            if (searchInput.length > 0) {
+                // Change the placeholder text to the next category in the list
+                placeholderText.placeholder = `Search ${categories[currentCategoryIndex]}`;
+            } else {
+                // Reset placeholder text when the input is empty
+                placeholderText.placeholder = `Search ${categories[currentCategoryIndex]}`;
+            }
+
+            // Cycle to the next category
+            currentCategoryIndex = (currentCategoryIndex + 1) % categories.length;
+        }
+
+        // Show suggestion list based on search input
+        function showSuggestions() {
+            const searchInput = document.getElementById('searchBar').value.toLowerCase();
+            const suggestionBox = document.getElementById('suggestionBox');
+            
+            // Filter the categories based on search input
+            const filteredSuggestions = categories.filter(category =>
+                category.toLowerCase().includes(searchInput)
+            );
+
+            if (filteredSuggestions.length > 0) {
+                suggestionBox.style.display = 'block';
+                suggestionBox.innerHTML = filteredSuggestions
+                    .map(item => `<div class="suggestion-item">${item}</div>`)
+                    .join('');
+            } else {
+                suggestionBox.style.display = 'none';
+            }
+        }
+
+        // Bind events
+        document.getElementById('searchBar').addEventListener('keyup', () => {
+            updatePlaceholder();
+            showSuggestions();
+        });
+
+        // Add click event to suggestion items
+        document.getElementById('suggestionBox').addEventListener('click', (event) => {
+            if (event.target.classList.contains('suggestion-item')) {
+                document.getElementById('searchBar').value = event.target.textContent;
+                showSuggestions();
+            }
+        });
+    </script>
+</body>
 </html>
