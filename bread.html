@@ -3,147 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bread</title>
+    <title>Quiksy - Bread</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Font Awesome CDN for icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styling */
+        .quiksy-theme {
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+        .search-bar {
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            padding: 8px 10px 8px 30px;
+            width: 300px;
+            position: relative;
+        }
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6b7280;
+        }
+        .suggestion-box {
+            position: absolute;
+            top: 35px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-top: none;
+            z-index: 10;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .suggestion-item {
+            padding: 8px;
+            cursor: pointer;
+        }
+        .suggestion-item:hover {
+            background-color: #f3f4f6;
+        }
+        .category {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+        .cate {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 180px;
+            height: 140px;
+            background-color: rgb(236, 245, 255);
+            border-radius: 15px;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+        }
+        .cate img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .cate:hover {
+            background-color: rgb(220, 240, 255);
+        }
+    </style>
 </head>
-<style>
-    /* Custom Styling */
-    .quiksy-theme {
-        background-color: #f3f4f6;
-        color: #1f2937;
-    }
-    .category-icon {
-        background-color: #d1fae5;
-        border-radius: 50%;
-        padding: 10px;
-    }
-    .cat_row {
-        display: flex;
-        flex-direction: column;
-        height: 170px;
-        margin-bottom: 15px;
-        margin-top: 15px;
-        width: 1400px;
-        margin-left: 60px;
-        border-radius: 30px;
-    }
-    .category {
-        height: 400px;
-        display: flex;
-        flex-direction: row;
-    }
-    .cate {
-        display: flex;
-        flex-direction: row;
-        margin-left: 32px;
-        margin-right: 32px;
-        width: 200px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        height: 140px;
-        background-color: rgb(236, 245, 255);
-        border-radius: 15px;
-    }
-    .cat_ic {
-        width: 50px;
-        height: 35px;
-        margin-left: 22px;
-        margin-top: 5px;
-        border-radius: 4px;
-    }
-    .cat_text {
-        background-color: rgb(236, 245, 255);
-        margin-left: 25px;
-        margin-top: 5px;
-        width: 90px;
-        font-size: small;
-        border-radius: 4px;
-    }
-    .feature-card {
-        transition: transform 0.3s ease;
-    }
-    .feature-card:hover {
-        transform: translateY(-10px);
-    }
-    .open {
-        border: 2px solid green;
-    }
-    /* Styles for the search bar */
-    .search-bar {
-        border: 1px solid #d1d5db;
-        border-radius: 5px;
-        padding: 8px 10px 8px 30px; /* Add space for the icon */
-        width: 300px; /* Make the search bar wider */
-        position: relative;
-    }
-    .search-icon {
-        position: absolute;
-        left: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #6b7280; /* Gray color for the icon */
-    }
-    .nav-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%; /* Ensures the full width is used */
-    }
-    .nav-links {
-        display: flex;
-        gap: 15px;
-        margin-left: auto; /* Pushes the navigation links to the right */
-    }
-    /* Adjust for search bar to center */
-    .search-container {
-        display: flex;
-        justify-content: center;
-        flex-grow: 1; /* This will take up remaining space */
-        margin-left: 15px; /* Adds some spacing between search bar and nav */
-    }
-    /* Styling for suggestion box */
-    .suggestion-box {
-        position: absolute;
-        top: 35px;
-        left: 0;
-        width: 100%;
-        background-color: white;
-        border: 1px solid #d1d5db;
-        border-top: none;
-        z-index: 10;
-        max-height: 200px;
-        overflow-y: auto;
-    }
-    .suggestion-item {
-        padding: 8px;
-        cursor: pointer;
-    }
-    .suggestion-item:hover {
-        background-color: #f3f4f6;
-    }
-</style>
 <body class="quiksy-theme text-gray-800">
 
     <!-- Navigation Bar -->
-    <header class="bg-grey shadow-md border-b-2">
-        <div class="container mx-auto px-6 py-4 nav-container">
+    <header class="bg-white shadow-md border-b-2">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
             <h1 class="text-2xl font-bold text-green-600">Quiksy</h1>
-            <!-- Search Bar in the center -->
-            <div class="search-container">
-                <div class="relative">
-                    <input type="text" id="searchBar" class="search-bar" placeholder="Search milk..." onkeyup="updatePlaceholder()">
-                    <!-- Search Icon -->
-                    <i class="fas fa-search search-icon"></i>
-                    <!-- Suggestions Box -->
-                    <div id="suggestionBox" class="suggestion-box" style="display: none;"></div>
-                </div>
+            <div class="relative">
+                <input type="text" id="searchBar" class="search-bar" placeholder="Search Milk...">
+                <i class="fas fa-search search-icon"></i>
+                <div id="suggestionBox" class="suggestion-box" style="display: none;"></div>
             </div>
-            <!-- Navigation Links aligned to the right -->
-            <nav class="nav-links">
+            <nav class="flex gap-6">
                 <a href="index.html" class="text-gray-600 hover:text-green-500">Home</a>
-                <a href="login.php" target="_self" class="text-gray-600 hover:text-green-500">Login</a>
+                <a href="login.php" class="text-gray-600 hover:text-green-500">Login</a>
                 <a href="#mycart" class="text-gray-600 hover:text-green-500">My Cart</a>
                 <a href="contact.html" class="text-gray-600 hover:text-green-500">Contact</a>
             </nav>
@@ -153,108 +97,47 @@
     <!-- Categories Section -->
     <section class="py-12">
         <div class="category">
-            <div class="cat_row" id="categoryContainer">
-                <!-- Category Items -->
-                <div class="cate open">
-                    <img src="cat_photos/bread.png" alt="" class="cat_ic">
-                    <div class="cat_text">Dairy, Breads & Eggs</div>
-                </div>
-                <div class="cate">
-                    <img src="cat_photos/f&v.png" alt="" class="cat_ic">
-                    <div class="cat_text">Fruits & Vegetables</div>
-                </div>
-                <div class="cate">
-                    <img src="cat_photos/cdj.png" alt="" class="cat_ic">
-                    <div class="cat_text">Cold drinks & Juices</div>
-                </div>
-                <div class="cate">
-                    <img src="cat_photos/s&m.png" alt="" class="cat_ic">
-                    <div class="cat_text">Snacks & Munchies</div>
-                </div>
-                <div class="cate">
-                    <img src="cat_photos/b&if.png" alt="" class="cat_ic">
-                    <div class="cat_text">Breakfast & Instant Food</div>
-                </div>
-                <div class="cate">
-                    <img src="cat_photos/chocs.png" alt="" class="cat_ic">
-                    <div class="cat_text">Sweet Tooth</div>
-                </div>
-                <div class="cate">
-                    <img src="cat_photos/bsct.png" alt="" class="cat_ic">
-                    <div class="cat_text">Bakery & Biscuits</div>
-                </div>
-                <div class="cate">
-                    <img src="cat_photos/tea.png" alt="" class="cat_ic">
-                    <div class="cat_text">Tea, Coffee & Health Drinks</div>
-                </div>
-                <div class="cate">
-                    <img src="cat_photos/atta.png" alt="" class="cat_ic">
-                    <div class="cat_text">Atta, Rice & Daal</div>
-                </div>
-                <div class="cate">
-                    <img src="cat_photos/baby.png" alt="" class="cat_ic">
-                    <div class="cat_text">Baby Care</div>
-                </div>
-                <div class="cate">
-                    <img src="cat_photos/personal.png" alt="" class="cat_ic">
-                    <div class="cat_text">Personal Care</div>
-                </div>
-                <div class="cate">
-                    <img src="cat_photos/masala.png" alt="" class="cat_ic">
-                    <div class="cat_text">Masala, Oil & More</div>
-                </div>
-                <div class="cate">
-                    <img src="cat_photos/clean.png" alt="" class="cat_ic">
-                    <div class="cat_text">Cleaning Essentials</div>
-                </div>
-                <div class="cate">
-                    <img src="cat_photos/sauce.png" alt="" class="cat_ic">
-                    <div class="cat_text">Sauces & Spreads</div>
-                </div>
+            <div class="cate">
+                <img src="cat_photos/bread.png" alt="Bread Icon">
+                <div>Dairy, Bread & Eggs</div>
+            </div>
+            <div class="cate">
+                <img src="cat_photos/f&v.png" alt="Fruits and Vegetables Icon">
+                <div>Fruits & Vegetables</div>
+            </div>
+            <div class="cate">
+                <img src="cat_photos/cdj.png" alt="Cold Drinks Icon">
+                <div>Cold Drinks & Juices</div>
+            </div>
+            <div class="cate">
+                <img src="cat_photos/s&m.png" alt="Snacks Icon">
+                <div>Snacks & Munchies</div>
+            </div>
+            <div class="cate">
+                <img src="cat_photos/b&if.png" alt="Breakfast Icon">
+                <div>Breakfast & Instant Food</div>
             </div>
         </div>
     </section>
 
     <script>
         const categories = [
-            "Milk",
-            "Paneer",
-            "Bread",
-            "Butter",
-            "Cheese",
-            "Yogurt",
-            "Ice Cream",
-            "Juice",
-            "Fruits",
-            "Vegetables",
-            "Snacks",
-            "Cereals"
+            "Milk", "Paneer", "Bread", "Butter", "Cheese", 
+            "Yogurt", "Ice Cream", "Juice", "Fruits", "Vegetables"
         ];
-
         let currentCategoryIndex = 0;
 
-        function updatePlaceholder() {
-            const searchInput = document.getElementById('searchBar').value.toLowerCase();
-            const placeholderText = document.getElementById('searchBar');
-
-            if (searchInput.length > 0) {
-                // Change the placeholder text to the next category in the list
-                placeholderText.placeholder = `Search ${categories[currentCategoryIndex]}`;
-            } else {
-                // Reset placeholder text when the input is empty
-                placeholderText.placeholder = `Search ${categories[currentCategoryIndex]}`;
-            }
-
-            // Cycle to the next category
+        // Cycle through the categories for the placeholder
+        function cyclePlaceholder() {
+            const searchBar = document.getElementById('searchBar');
+            searchBar.placeholder = `Search ${categories[currentCategoryIndex]}...`;
             currentCategoryIndex = (currentCategoryIndex + 1) % categories.length;
         }
 
-        // Show suggestion list based on search input
+        // Update suggestions based on user input
         function showSuggestions() {
             const searchInput = document.getElementById('searchBar').value.toLowerCase();
             const suggestionBox = document.getElementById('suggestionBox');
-            
-            // Filter the categories based on search input
             const filteredSuggestions = categories.filter(category =>
                 category.toLowerCase().includes(searchInput)
             );
@@ -270,18 +153,19 @@
         }
 
         // Bind events
-        document.getElementById('searchBar').addEventListener('keyup', () => {
-            updatePlaceholder();
-            showSuggestions();
-        });
-
-        // Add click event to suggestion items
+        document.getElementById('searchBar').addEventListener('input', showSuggestions);
         document.getElementById('suggestionBox').addEventListener('click', (event) => {
             if (event.target.classList.contains('suggestion-item')) {
                 document.getElementById('searchBar').value = event.target.textContent;
-                showSuggestions();
+                document.getElementById('suggestionBox').style.display = 'none';
             }
         });
+
+        // Automatically cycle placeholder every 3 seconds
+        setInterval(cyclePlaceholder, 3000);
+
+        // Initialize placeholder cycling on load
+        window.onload = cyclePlaceholder;
     </script>
 </body>
 </html>
