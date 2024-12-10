@@ -1,4 +1,4 @@
-# Quiksy  
+# Quiksy⚡
 Quiksy is a quick commerce platform designed to provide fast and seamless online shopping experiences. The platform allows users to browse categories, add items to their cart, and complete purchases efficiently. It features a user-friendly interface, optimized search functionality, and an account dashboard for order management.  
 
 
@@ -16,14 +16,11 @@ Quiksy is a quick commerce platform designed to provide fast and seamless online
 - Simple and responsive UI design  
 
 
-## Output Screenshots  
+## Demo   
 
-![Landing Page](ss/landing-page.png)  
-1. Landing Page  
----
-![Account Dashboard](ss/account-dashboard.png) 
-2. My Account Dashboard  
- 
+![Landing Page](ss/landing.jpg)  
+![Categories Page](ss/categories.jpg)
+
 
 ## Contributors 
 Special thanks to
