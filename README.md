@@ -21,8 +21,3 @@ Quiksy is a quick commerce platform designed to provide fast and seamless online
 ![Landing Page](ss/landing.jpg)  
 ![Categories Page](ss/categories.jpg)
 
-
-## Contributors 
-Special thanks to
-**[@Yugal-Gahlout](https://github.com/YUGAL-GAHLOUT)**
-and **[@Sanyam-Jain](https://github.com/sanyamjain1111)** for their contributions to designing and developing the frontend UI.
